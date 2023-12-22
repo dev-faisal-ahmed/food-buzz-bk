@@ -10,3 +10,9 @@ FoodRouter.post(
   HandleValidation(FoodValidation.AddFoodValidationSchema),
   FoodController.AddFood,
 );
+
+FoodRouter.patch(
+  '/',
+  HandleValidation(FoodValidation.UpdateFoodValidationSchema),
+  FoodController.UpdateFood,
+);

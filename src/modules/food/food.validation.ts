@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const AddFoodValidationSchema = z.object({
+const AddFoodValidationSchema = z.object({
   name: z.string({ required_error: 'Name is required' }),
   category: z.string({ required_error: 'Category is required' }),
   price: z
@@ -10,6 +10,14 @@ export const AddFoodValidationSchema = z.object({
   image: z.string({ required_error: 'image is required' }),
 });
 
+const UpdateFoodValidationSchema = z.object({
+  name: z.string().optional(),
+  category: z.string().optional(),
+  price: z.number().optional(),
+  image: z.string().optional(),
+});
+
 export const FoodValidation = {
   AddFoodValidationSchema,
+  UpdateFoodValidationSchema,
 };

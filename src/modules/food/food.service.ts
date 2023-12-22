@@ -6,4 +6,12 @@ const AddFoodIntoDB = async (payload: FoodType) => {
   return newFood;
 };
 
-export const FoodService = { AddFoodIntoDB };
+const UpdateFoodFromDB = async (id: string, payload: FoodType) => {
+  const updatedFood = await FoodModel.findByIdAndUpdate(id, payload, {
+    new: true,
+    runValidators: true,
+  });
+  return updatedFood;
+};
+
+export const FoodService = { AddFoodIntoDB, UpdateFoodFromDB };
