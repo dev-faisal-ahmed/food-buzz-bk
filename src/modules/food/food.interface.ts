@@ -5,6 +5,5 @@ export type FoodType = {
   name: string;
   category: Schema.Types.ObjectId;
   price: number;
-  soldCount: number;
   image: string;
 };

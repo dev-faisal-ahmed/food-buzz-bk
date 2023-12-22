@@ -16,3 +16,7 @@ FoodRouter.patch(
   HandleValidation(FoodValidation.UpdateFoodValidationSchema),
   FoodController.UpdateFood,
 );
+
+FoodRouter.delete('/', FoodController.DeleteFood);
+
+FoodRouter.get('/', FoodController.GetFoods);

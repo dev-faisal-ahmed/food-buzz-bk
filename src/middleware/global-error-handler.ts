@@ -17,5 +17,11 @@ export const GlobalErrorHandler = (
 
   if (err.name === 'ValidationError') message = err.message;
 
+  if (err.code == 11000) {
+    let errPair = '';
+    Object.values(err.keyValue).forEach((el) => (errPair += el + ' '));
+    message = errPair + 'already exists';
+  }
+
   return sendErrorResponse(res, { error: err, statusCode, message });
 };
